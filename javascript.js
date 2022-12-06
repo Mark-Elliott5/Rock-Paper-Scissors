@@ -5,8 +5,10 @@ function getComputerChoice() {
     return computerChoice = weapons[indexNumber];
 }
 
-function createGame (playerSelection = prompt(), computerSelection = getComputerChoice()) {
+function playRound (playerSelection = prompt(), computerSelection = getComputerChoice()) {
     const weapons = ['rock', 'paper', 'scissors'];
+    let playerScore = 0;
+    let computerScore = 0;
     playerSelection = playerSelection.toLowerCase();
     console.log('The computer chose ' + computerSelection);
     console.log('The player chose ' + playerSelection);
@@ -15,27 +17,27 @@ function createGame (playerSelection = prompt(), computerSelection = getComputer
     } else if (playerSelection == 'rock') {
         if (computerSelection == 'scissors') {
             console.log('Rock beats Scissors! You win!');
-            return;
+            return playerScore += 1;
         }
         else if (computerSelection == 'paper') {
             console.log('Paper beats Rock! Get owned son!');
-            return;
+            return computerScore += 1;
         }
     } else if (playerSelection == 'paper') {
         if (computerSelection == 'rock') {
             console.log('Paper beats Rock! You win!');
-            return;
+            return playerScore += 1;
         } else if (computerSelection == 'scissors') {
             console.log('Scissors beats Paper. This dude brought paper to a scissors fight.');
-            return;
+            return computerScore += 1;
         }
     } else if (playerSelection == 'scissors') {
         if (computerSelection == 'paper') {
             console.log('Scissors beats Paper! You win!');
-            return;
+            return playerScore += 1;
         } else if (computerSelection == 'rock') {
             console.log('Rock beats Scissors nerd. Destroyed.');
-            return;
+            return computerScore += 1;
         }
     } else if (!(weapons.includes(playerSelection))) {
         console.log('You can\'t use that weapon in Rock Paper Scissors sir. Refresh the page to try again.');
@@ -43,6 +45,6 @@ function createGame (playerSelection = prompt(), computerSelection = getComputer
     }
 }
 
-createGame()
+playRound()
 
 
