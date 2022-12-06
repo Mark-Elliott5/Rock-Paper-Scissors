@@ -7,8 +7,7 @@ function getComputerChoice() {
 
 function playRound (playerSelection = prompt(), computerSelection = getComputerChoice()) {
     const weapons = ['rock', 'paper', 'scissors'];
-    let playerScore = 0;
-    let computerScore = 0;
+    let score = 0;
     playerSelection = playerSelection.toLowerCase();
     console.log('The computer chose ' + computerSelection);
     console.log('The player chose ' + playerSelection);
@@ -17,27 +16,27 @@ function playRound (playerSelection = prompt(), computerSelection = getComputerC
     } else if (playerSelection == 'rock') {
         if (computerSelection == 'scissors') {
             console.log('Rock beats Scissors! You win!');
-            return playerScore += 1;
+            return score += 1;
         }
         else if (computerSelection == 'paper') {
             console.log('Paper beats Rock! Get owned son!');
-            return computerScore += 1;
+            return score -= 1;
         }
     } else if (playerSelection == 'paper') {
         if (computerSelection == 'rock') {
             console.log('Paper beats Rock! You win!');
-            return playerScore += 1;
+            return score += 1;
         } else if (computerSelection == 'scissors') {
             console.log('Scissors beats Paper. This dude brought paper to a scissors fight.');
-            return computerScore += 1;
+            return score -= 1;
         }
     } else if (playerSelection == 'scissors') {
         if (computerSelection == 'paper') {
             console.log('Scissors beats Paper! You win!');
-            return playerScore += 1;
+            return score += 1;
         } else if (computerSelection == 'rock') {
             console.log('Rock beats Scissors nerd. Destroyed.');
-            return computerScore += 1;
+            return score -= 1;
         }
     } else if (!(weapons.includes(playerSelection))) {
         console.log('You can\'t use that weapon in Rock Paper Scissors sir. Refresh the page to try again.');
@@ -45,6 +44,23 @@ function playRound (playerSelection = prompt(), computerSelection = getComputerC
     }
 }
 
-playRound()
-
+function game(gameCount = 5) {
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < (gameCount); i++) {
+        let result = playRound();
+        if (Math.sign(result) == 1) {
+            playerScore += 1;
+            continue;
+        } else {
+            computerScore += 1;
+            continue;
+        } 
+    } if (playerScore > computerScore) {
+        console.log(`You won the game! The score was ${playerScore} - ${computerScore}`)
+    } else {
+        console.log(`You lost to the computer. The score was ${playerScore} - ${computerScore}`)
+    }
+}        
+game()
 
