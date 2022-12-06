@@ -1,7 +1,7 @@
 function getComputerChoice() {
     const weapons = ['rock', 'paper', 'scissors'];
     let computerChoice = '';
-    let indexNumber = Math.floor(Math.random()*3);
+    let indexNumber = Math.floor(Math.random() * 3);
     return computerChoice = weapons[indexNumber];
 }
 
@@ -12,7 +12,8 @@ function playRound (playerSelection = prompt(), computerSelection = getComputerC
     console.log('The computer chose ' + computerSelection);
     console.log('The player chose ' + playerSelection);
     if (playerSelection == computerSelection) {
-        console.log('Draw! Refresh the page to try again.')
+        console.log('Draw! Let\'s try again...')
+        return;
     } else if (playerSelection == 'rock') {
         if (computerSelection == 'scissors') {
             console.log('Rock beats Scissors! You win!');
@@ -39,7 +40,7 @@ function playRound (playerSelection = prompt(), computerSelection = getComputerC
             return score -= 1;
         }
     } else if (!(weapons.includes(playerSelection))) {
-        console.log('You can\'t use that weapon in Rock Paper Scissors sir. Refresh the page to try again.');
+        console.log('You can\'t use that weapon in Rock Paper Scissors sir. Let\'s try again...');
         return;
     }
 }
@@ -52,10 +53,12 @@ function game(gameCount = 5) {
         if (Math.sign(result) == 1) {
             playerScore += 1;
             continue;
-        } else {
+        } else if (Math.sign(result) == -1) {
             computerScore += 1;
             continue;
-        } 
+        } else {
+            i--;
+        }
     } if (playerScore > computerScore) {
         console.log(`You won the game! The score was ${playerScore} - ${computerScore}`)
     } else {
