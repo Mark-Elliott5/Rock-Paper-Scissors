@@ -50,10 +50,10 @@ function game(gameCount = 5) {
     let computerScore = 0;
     for (let i = 0; i < (gameCount); i++) {
         let result = playRound();
-        if (Math.sign(result) == 1) {
+        if (result == 1) {
             playerScore += 1;
             continue;
-        } else if (Math.sign(result) == -1) {
+        } else if (result == -1) {
             computerScore += 1;
             continue;
         } else {
