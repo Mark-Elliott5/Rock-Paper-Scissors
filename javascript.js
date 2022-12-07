@@ -1,11 +1,13 @@
 function game(gameCount = 5) {
     const weapons = ['rock', 'paper', 'scissors'];
 
-    function getComputerChoice() {
-        let computerChoice = '';
-        let indexNumber = Math.floor(Math.random() * 3);
-        return computerChoice = weapons[indexNumber];
-    }
+  //  function getComputerChoice() {
+  //      let computerChoice = '';
+  //      let indexNumber = Math.floor(Math.random() * 3);
+  //      return computerChoice = weapons[indexNumber];
+  //  } This is a function declaration
+
+    const getComputerChoice = function () { return weapons[Math.floor(Math.random() * 3)];} //This is an anonymous function. Also a function expression
 
     function playRound (playerSelection = prompt(), computerSelection = getComputerChoice()) {
         let score = 0;
