@@ -1,21 +1,20 @@
+//This function calls for a game of RPS to be played, the number of rounds
+//determined by the number that the function is passed, which is default 5
+
 function game(gameCount = 5) {
     const weapons = ['rock', 'paper', 'scissors'];
 
-  //  function getComputerChoice() {
-  //      let computerChoice = '';
-  //      let indexNumber = Math.floor(Math.random() * 3);
-  //      return computerChoice = weapons[indexNumber];
-  //  } This is a function declaration
+    //This is an anonymous function. Also a function expression
+    const getComputerChoice = function () {return weapons[Math.floor(Math.random() * 3)];} 
 
-    const getComputerChoice = function () { return weapons[Math.floor(Math.random() * 3)];} //This is an anonymous function. Also a function expression
-
+    //This function handles individual RPS rounds
     function playRound (playerSelection = prompt(), computerSelection = getComputerChoice()) {
         let score = 0;
         playerSelection = playerSelection.toLowerCase();
         console.log('The computer chose ' + computerSelection);
         console.log('The player chose ' + playerSelection);
         if (playerSelection == computerSelection) {
-            console.log('Draw! Let\'s try again...')
+            console.log('Draw! Let\'s try again...');
             return;
         } else if (playerSelection == 'rock') {
             if (computerSelection == 'scissors') {
@@ -47,6 +46,7 @@ function game(gameCount = 5) {
         }
     }
 
+    //This part of the game() function handles displaying W/L at the end of the game
     let playerScore = 0;
     let computerScore = 0;
     for (let i = 0; i < (gameCount); i++) {
