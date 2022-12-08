@@ -4,7 +4,7 @@
 function game(gameCount = 5) {
     const weapons = ['rock', 'paper', 'scissors'];
 
-    //This is an anonymous function. Also a function expression
+    //This is an anonymous function
     const getComputerChoice = function () {return weapons[Math.floor(Math.random() * 3)];} 
 
     //This function handles individual RPS rounds
@@ -45,7 +45,7 @@ function game(gameCount = 5) {
         }
     }
 
-    //This part of the game() function handles displaying W/L at the end of the game
+    //This part of the game() function displays W/L at the end of the game
     let playerScore = 0;
     let computerScore = 0;
     for (let i = 0; i < (gameCount); i++) {
