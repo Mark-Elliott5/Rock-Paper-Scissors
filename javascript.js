@@ -8,9 +8,8 @@ function game(gameCount = 5) {
     const getComputerChoice = function () {return weapons[Math.floor(Math.random() * 3)];} 
 
     //This function handles individual RPS rounds
-    function playRound (playerSelection = prompt(), computerSelection = getComputerChoice()) {
+    function playRound (playerSelection = prompt().toLowerCase(), computerSelection = getComputerChoice()) {
         let score = 0;
-        playerSelection = playerSelection.toLowerCase();
         console.log('The computer chose ' + computerSelection);
         console.log('The player chose ' + playerSelection);
         if (playerSelection == computerSelection) {
