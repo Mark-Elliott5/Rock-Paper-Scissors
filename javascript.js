@@ -45,25 +45,26 @@ function game(gameCount = 5) {
         }
     }
 
-    //This part of the game() function displays W/L at the end of the game
-    let playerScore = 0;
-    let computerScore = 0;
-    for (let i = 0; i < (gameCount); i++) {
-        let result = playRound();
-        if (result == 1) {
-            playerScore += 1;
-            continue;
-        } else if (result == -1) {
-            computerScore += 1;
-            continue;
-        } else {
-            i--;
-        }
-    } if (playerScore > computerScore) {
-        console.log(`You won the game! The score was ${playerScore} - ${computerScore}`);
-    } else {
-        console.log(`You lost to the computer. The score was ${playerScore} - ${computerScore}`);
-    }
+    // //This part of the game() function displays W/L at the end of the game and 
+    // //sets number of rounds to be played
+    // let playerScore = 0;
+    // let computerScore = 0;
+    // for (let i = 0; i < (gameCount); i++) {
+    //     let result = playRound();
+    //     if (result == 1) {
+    //         playerScore += 1;
+    //         continue;
+    //     } else if (result == -1) {
+    //         computerScore += 1;
+    //         continue;
+    //     } else {
+    //         i--;
+    //     }
+    // } if (playerScore > computerScore) {
+    //     console.log(`You won the game! The score was ${playerScore} - ${computerScore}`);
+    // } else {
+    //     console.log(`You lost to the computer. The score was ${playerScore} - ${computerScore}`);
+    // }
 }        
 
 game()
