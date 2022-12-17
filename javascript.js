@@ -73,11 +73,16 @@ const weapons = document.querySelectorAll('button');
 weapons.forEach((weapon) => {
 
     weapon.addEventListener('click', playRound);
-
+    
   });
+
+// const playerScore = document.querySelector('playerScore');
+// const computerScore = document.querySelector('computerScore');
 
 function playRound (buttonClicked) {
     let score = 0;
+    const playerScore = document.querySelector('#player-score');
+    const computerScore = document.querySelector('#computer-score');
     const playerSelection = buttonClicked.currentTarget.id
     const weapons = ['rock', 'paper', 'scissors'];
     //This is an Immediately Invoked Function Expression:
@@ -92,28 +97,34 @@ function playRound (buttonClicked) {
     } else if (playerSelection == 'rock') {
         if (computerSelection == 'scissors') {
             console.log('Rock beats Scissors! You win!');
-            return score += 1;
+            score += 1;
         } else if (computerSelection == 'paper') {
             console.log('Paper beats Rock! Get owned son!');
-            return score -= 1;
+            score -= 1;
         }
     } else if (playerSelection == 'paper') {
         if (computerSelection == 'rock') {
             console.log('Paper beats Rock! You win!');
-            return score += 1;
+            score += 1;
         } else if (computerSelection == 'scissors') {
             console.log('Scissors beats Paper. This dude brought paper to a scissors fight.');
-            return score -= 1;
+             score -= 1;
         }
     } else if (playerSelection == 'scissors') {
         if (computerSelection == 'paper') {
             console.log('Scissors beats Paper! You win!');
-            return score += 1;
+             score += 1;
         } else if (computerSelection == 'rock') {
             console.log('Rock beats Scissors nerd. Destroyed.');
-            return score -= 1;
+            score -= 1;
         }
     } else {
         return console.log('error');
+    }
+
+    if (score > 0) {
+        playerScore.textContent = ((parseInt(playerScore.textContent)) + 1);
+    } if (score < 1) {
+        computerScore.textContent = ((parseInt(computerScore.textContent)) + 1);
     }
 }
