@@ -76,11 +76,13 @@ weapons.forEach((weapon) => {
 
   });
 
-function playRound (playerSelection) {
+function playRound (buttonClicked) {
     let score = 0;
+    const playerSelection = buttonClicked.currentTarget.id
+    const weapons = ['rock', 'paper', 'scissors'];
     const getComputerChoice = function () {return weapons[Math.floor(Math.random() * 3)];}
     const computerSelection = getComputerChoice();
-    
+
     console.log('The computer chose ' + computerSelection);
     console.log('The player chose ' + playerSelection);
 
@@ -111,5 +113,7 @@ function playRound (playerSelection) {
             console.log('Rock beats Scissors nerd. Destroyed.');
             return score -= 1;
         }
+    } else {
+        return console.log('error');
     }
 }
