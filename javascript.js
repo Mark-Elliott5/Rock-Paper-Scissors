@@ -80,8 +80,8 @@ function playRound (buttonClicked) {
     let score = 0;
     const playerSelection = buttonClicked.currentTarget.id
     const weapons = ['rock', 'paper', 'scissors'];
-    const getComputerChoice = function () {return weapons[Math.floor(Math.random() * 3)];}
-    const computerSelection = getComputerChoice();
+    //This is an Immediately Invoked Function Expression:
+    const computerSelection = (() => {return weapons[Math.floor(Math.random() * 3)];})()
 
     console.log('The computer chose ' + computerSelection);
     console.log('The player chose ' + playerSelection);
